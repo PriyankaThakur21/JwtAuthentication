@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
+	//using in security config
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
 		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

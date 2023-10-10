@@ -4,6 +4,7 @@ import com.JwtAuthentication.Entities.User;
 import com.JwtAuthentication.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,17 @@ public class HomeController {
 	@Autowired
 	private UserService userservice;
 
+	@GetMapping("/test")
+	public String home(){
+		return "Welcome to my Website!!";
+	}
 	@GetMapping("/users")
 	public List<User> user()
 	{
 		return this.userservice.getUser();
 	}
 
-	@GetMapping("/curentuser")
+	@GetMapping("/currentUser")
 	public String getUser(Principal principal){
 		return principal.getName();
 	}

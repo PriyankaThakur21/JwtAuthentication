@@ -31,10 +31,9 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtHelper helper;
 
-	private Logger logger = LoggerFactory.getLogger(JwtAuthenticationController.class);
+//	private Logger logger = LoggerFactory.getLogger(JwtAuthenticationController.class);
 	@PostMapping("/login")
 	public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
-
 		this.doAuthenticate(request.getEmail(), request.getPassword());
 
 		UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
@@ -48,7 +47,7 @@ public class JwtAuthenticationController {
 
 		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
 		try {
-			System.out.println("hi");
+//			System.out.println("hi");
 			manager.authenticate(authentication);
 
 
